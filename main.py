@@ -37,9 +37,10 @@ def run(congestion_control):
                 error_rate_percent=error_rate_percent,
                 results_folder=results_folder)
             if not os.path.exists(results_folder_local):
-                print("starting: {0}".format(args))
-                subprocess.check_call(args, shell=True, cwd=ROOT_DIR)
-                shutil.copytree(results_folder_full, results_folder_local)
+                continue
+                # print("starting: {0}".format(args))
+                # subprocess.check_call(args, shell=True, cwd=ROOT_DIR)
+                # shutil.copytree(results_folder_full, results_folder_local)
             else:
                 print("skipping: {0}".format(args))
 
