@@ -1,12 +1,13 @@
 #!/usr/bin/python
 
 import os
-import subprocess
 import shutil
+import subprocess
 import textwrap
 
 import click
 import matplotlib
+
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
@@ -23,7 +24,7 @@ def run(congestion_control):
     results = dict()
     for cc in congestion_control:
         results[cc] = list()
-        for error_rate in range(0, 55, 25):
+        for error_rate in [5, 10, 15, 20, 25, 50]:
             error_rate_percent = error_rate / 100.0
             results_folder = "{0}_{1}".format(cc, error_rate)
             results_folder_full = os.path.join(ROOT_DIR, "results", results_folder)
@@ -45,21 +46,18 @@ def run(congestion_control):
             with open(os.path.join(results_folder_local, "throughput", "client.log")) as server_log_file:
                 server_log = [l.strip() for l in server_log_file.readlines() if l.strip()]
 
-            b_total = 0
-            b_percentage = []
+            b_total, t = 0, 0
             for line in server_log:
                 t, b = line.split(" ")
                 b_total += float(b) * 8
-                if int(float(t)) - float(t) < 0.001:
-                    b_percentage.append(b_total / (1024 ** 3))
-                    b_total = 0
-            results[cc].append((error_rate, sum(b_percentage) / len(b_percentage)))
+            results[cc].append([error_rate, b_total / (float(t) * 1024 ** 3)])
 
         x, y = [], []
-        for error_rate, throughput in results[cc]:
+        for (error_rate, throughput) in results[cc]:
             x.append(error_rate)
             y.append(throughput)
 
+        plt.clf()
         plt.plot(x, y)
         plt.xlabel('error_rate')
         plt.ylabel('throughput percentage')
