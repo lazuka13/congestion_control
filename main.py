@@ -55,7 +55,7 @@ def run(congestion_control):
                     t_start = float(t)
                 t_end = float(t)
                 b_total += float(b) * 8 * 10.0 / 1000  # convert to bits and * 10 ms == sent in this 10 ms
-            results[cc].append(b_total / (float(t_end - t_start) * 1024 ** 3))  # utilization
+            results[cc].append(b_total / (float(t_end - t_start) * 1000 ** 3))  # utilization
 
     error_rate_percents = [x / 10000.0 for x in [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50]]
 
