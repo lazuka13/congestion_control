@@ -6,7 +6,7 @@ Program Arguments:
     --delay:        Delay of point to point channel [50ms]
     --fileSize:     Size of one file in bytes [200000000]
     --folderName:   Name of the folder to store results [westwood_25]
-    --errorRate:    Probability of packet being dropped [0.25]
+    --errorRate:    Probability of packet being dropped [0.0025]
     --maxFileNum:   The total number of files per server [1]
     --stopTime:     Timestep at which simulation will stop [1000]
 

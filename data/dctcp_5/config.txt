@@ -5,8 +5,8 @@ Program Arguments:
     --dataRate:     Data rate of point to point channel [1000Mbps]
     --delay:        Delay of point to point channel [50ms]
     --fileSize:     Size of one file in bytes [200000000]
-    --folderName:   Name of the folder to store results [dctcp_5]
-    --errorRate:    Probability of packet being dropped [0.05]
+    --folderName:   Name of the folder to store results [dctcp_05]
+    --errorRate:    Probability of packet being dropped [0.0005]
     --maxFileNum:   The total number of files per server [1]
     --stopTime:     Timestep at which simulation will stop [1000]
 

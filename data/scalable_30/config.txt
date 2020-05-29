@@ -1,0 +1,20 @@
+task [Program Arguments] [General Arguments]
+
+Program Arguments:
+    --congControl:  Congestion control to use on hosts [scalable]
+    --dataRate:     Data rate of point to point channel [1000Mbps]
+    --delay:        Delay of point to point channel [50ms]
+    --fileSize:     Size of one file in bytes [200000000]
+    --folderName:   Name of the folder to store results [scalable_3]
+    --errorRate:    Probability of packet being dropped [0.003]
+    --maxFileNum:   The total number of files per server [1]
+    --stopTime:     Timestep at which simulation will stop [1000]
+
+General Arguments:
+    --PrintGlobals:              Print the list of globals.
+    --PrintGroups:               Print the list of groups.
+    --PrintGroup=[group]:        Print all TypeIds of group.
+    --PrintTypeIds:              Print all TypeIds.
+    --PrintAttributes=[typeid]:  Print all attributes of typeid.
+    --PrintHelp:                 Print this help message.
+
